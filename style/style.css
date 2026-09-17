@@ -1,0 +1,17 @@
+body {
+    width: 30%;
+    margin: auto;
+    text-align: center;
+    background-color: lightgray;
+}
+body main {
+    background-color: white;
+}
+header {
+    border: 2px solid black;
+    border-radius: 10px;
+}
+footer {
+    border: 2px solid black;
+    border-radius: 10px;
+}
