@@ -1,6 +1,7 @@
 <?php 
 // require_once '../database/connect.php';
 require_once '../includes/functions.php';
+require_once '../login/verifica_user.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

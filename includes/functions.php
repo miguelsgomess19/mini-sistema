@@ -51,3 +51,34 @@ function atualizar($conexao, $id, $nome, $nasc, $turma, $ativo)
     $stmt->bindValue(":ativo", $ativo);
     $stmt->execute();
 }
+//Função cadastrar
+
+function cadastrar_user($conexao, $email,$senha)
+{
+    $sql = "INSERT INTO usuarios (email, senha) VALUES (:email, :senha)";
+
+    $stmt = $conexao->prepare($sql);
+    $stmt->bindParam(":email", $email);
+    $stmt->bindParam(":senha", $senha);
+
+    $stmt->execute();
+    echo "Usuário cadastrado com sucesso!";
+}
+
+function consultar_user($conexao, $email)
+{
+    $sql = "SELECT id, email, senha FROM usuarios WHERE email = :email";
+
+    try{
+
+    $stmt = $conexao->prepare($sql);
+    $stmt->bindParam(":email", $email);
+    $stmt->execute();
+
+    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    return $usuario;
+    }catch (PDOException $e){
+        echo $e->getMessage();
+    }
+}
